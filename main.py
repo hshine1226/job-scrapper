@@ -1,15 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
+
 app = Flask('JobScrapper')
 
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!~~~'
-
-
-@app.route('/contact')
-def contact():
-    return 'this is contact'
+    return render_template('potato.html')
 
 
 if __name__ == '__main__':
