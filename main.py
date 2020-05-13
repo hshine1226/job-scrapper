@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, send_file
-from scrapper import get_indeed_jobs
+from scrapper import get_jobs
 from exporter import save_to_file
 
 app = Flask('JobScrapper')
@@ -21,15 +21,15 @@ def report():
         word = word.lower()
         existingJobs = db.get(word)
         if existingJobs:
-            indeed_jobs = existingJobs
+            jobs = existingJobs
         else:
-            indeed_jobs = get_indeed_jobs(word)
-            db[word] = indeed_jobs
+            jobs = get_jobs(word)
+            db[word] = jobs
 
     else:
         return redirect('/')
 
-    return render_template('report.html', searchingBy=word, jobs=indeed_jobs, resultsNumber=len(indeed_jobs))
+    return render_template('report.html', searchingBy=word, jobs=jobs, resultsNumber=len(jobs))
 
 
 @app.route('/export')
