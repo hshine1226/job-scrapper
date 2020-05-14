@@ -2,15 +2,16 @@ from flask import Flask, render_template, request, redirect, send_file
 from scrapper import get_jobs
 from exporter import save_to_file
 
+
 app = Flask('JobScrapper')
 # Fake Database
-# 직무 검색을 하게 되면 검색 결과를 데이터베이스에 저장하고, 저장된 결과는 재검색시에 scrapping을 생략한다.
+
 db = {}
 
 
 @app.route('/')
 def hello_world():
-    return render_template('potato.html')
+    return render_template('main.html')
 
 
 @app.route('/report')

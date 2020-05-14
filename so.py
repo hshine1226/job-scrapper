@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 
 # https://stackoverflow.com/jobs?q=python
 # https://stackoverflow.com/jobs?q=python&pg=2
-URL = f"https://stackoverflow.com/jobs?q=python"
 
 
 def get_last_page(url):

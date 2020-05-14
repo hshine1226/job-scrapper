@@ -1,0 +1,4 @@
+Flask==1.1.2
+# Werkzeug<0.13.0,>=0.12.0
+requests
+bs4
